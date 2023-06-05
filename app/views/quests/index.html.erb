@@ -1,0 +1,9 @@
+<h1>Quests</h1>
+
+<ul>
+  <%  @quests&.each do |quest| %>
+    <li>
+      <%= link_to quest.name, [@student, quest] %>
+    </li>
+  <% end %>
+</ul>
