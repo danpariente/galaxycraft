@@ -3,12 +3,11 @@
 
 <h3>Assignment</h3>
 
-<%= @assignment&.submitted_at %>
-<%= @assignment&.submission.html_safe %>
+<h5><%= "Submitted at: #{@assignment&.submitted_at.to_s(:short)}" %></h5>
 
 <hr>
 
-<%= form_with(model: Assignment.new, local: true, type: :model, html: {class: "form-class", style: "min-width: 800px;"}) do |f| %>
+<%= form_with(model: @assignment, local: true, type: :model, html: {class: "form-class", style: "min-width: 800px;"}) do |f| %>
   <%= f.label :submission, 'Submission', class: "form-label" %>
   <%= f.rich_text_area :submission, class: "form-input" %>
   <%= f.hidden_field :quest_id, value: @quest.id %>
