@@ -1,7 +1,6 @@
 <h1><%= @quest.name %></h1>
-<h2><%= @student.name %></h2>
 
-<h3>Assignment</h3>
+<h3><%= "#{@student.name}'s assignment" %></h3>
 
 <h5><%= "Submitted at: #{@assignment&.submitted_at.to_s(:short)}" %></h5>
 
