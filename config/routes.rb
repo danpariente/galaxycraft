@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :journeys do
+     resources :students, only: :show
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :students do
+    resources :quests, only: [:show, :index]
+  end
+
+  resources :quests, only: [:new, :create]
+  resources :paths, only: :create
+
+  resources :assignments
 end
