@@ -7,8 +7,8 @@ class QuestsController < ApplicationController
 
   def index
     @student = Student.find(params[:student_id])
-    journey = @student.journeys.first
-    @quests = journey&.quests
+    @journey = @student.journeys.first
+    @quests = @journey&.quests
   end
 
   def new
