@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   resources :students do
+    resource :profile, only: [:new, :create, :show]
     resources :quests, only: [:show, :index]
   end
 
