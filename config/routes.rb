@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :journeys, only: [:show] do
-        resources :quests, only: [:index]
+        resources :quests, only: [:index, :show]
+      end
+
+      resources :students, only: [] do
+        resources :quests, only: [] do
+          resource :assignment
+        end
       end
     end
   end
