@@ -6,7 +6,7 @@
 
 <h3><%= "#{@student.name}'s assignment" %></h3>
 
-<h5><%= "Submitted at: #{@assignment&.submitted_at.to_s(:short)}" %></h5>
+<h5><%= "Submitted at: #{@assignment&.submitted_at&.to_s(:short)}" %></h5>
 
 <hr>
 
