@@ -1,6 +1,6 @@
-Journey.destroy_all
-Student.destroy_all
 Quest.destroy_all
+Student.destroy_all
+Journey.destroy_all
 
 Journey.create!([
   {
