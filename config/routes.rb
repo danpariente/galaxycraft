@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :journeys, only: [:show] do
+      resources :journeys, only: [:index, :show] do
         resources :quests, only: [:index, :show]
       end
 
