@@ -10,6 +10,8 @@ Rails.application.routes.draw do
           resource :assignment
         end
       end
+
+      resources :accounts, only: :create
     end
   end
 
