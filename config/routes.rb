@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       end
 
       resources :accounts, only: :create
+      resources :tokens, only: :create
     end
   end
 
