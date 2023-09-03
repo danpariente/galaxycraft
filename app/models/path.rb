@@ -1,4 +1,4 @@
 class Path < ApplicationRecord
   belongs_to :journey
-  belongs_to :student
+  belongs_to :apprentice
 end

@@ -8,7 +8,7 @@ class CreateAssignments < ActiveRecord::Migration[7.0]
       t.timestamps
 
       t.references :quest, null: false, foreign_key: true
-      t.references :student, null: false, foreign_key: true
+      t.references :apprentice, null: false, foreign_key: true
     end
   end
 end

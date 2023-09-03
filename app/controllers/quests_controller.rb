@@ -1,13 +1,13 @@
 class QuestsController < ApplicationController
   def show
     @quest = Quest.find(params[:id])
-    @student = Student.find(params[:student_id])
-    @assignment = Assignment.where(quest: @quest, student: @student).first_or_initialize
+    @apprentice = Apprentice.find(params[:apprentice_id])
+    @assignment = Assignment.where(quest: @quest, apprentice: @apprentice).first_or_initialize
   end
 
   def index
-    @student = Student.find(params[:student_id])
-    @journey = @student.journeys.first
+    @apprentice = Apprentice.find(params[:apprentice_id])
+    @journey = @apprentice.journeys.first
     @quests = @journey&.quests
   end
 

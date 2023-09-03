@@ -1,28 +1,28 @@
 Quest.destroy_all
-Student.destroy_all
+Apprentice.destroy_all
 Journey.destroy_all
 
 Journey.create!([
   {
-    name: "Hero's",
+    name: "JavaScript",
     active: true
   },
 ])
 
 p "Created #{Journey.count} journeys"
 
-Student.create!([
+Apprentice.create!([
   {
-    name: "Sole Barboza",
-    email: "sole@email.com"
+    first_name: "Sole",
+    last_name: "Barboza"
   },
   {
-    name: "Dan Pariente",
-    email: "dan@email.com"
+    first_name: "Dan",
+    last_name: "Pariente"
   },
 ])
 
-p "Created #{Student.count} students"
+p "Created #{Apprentice.count} Apprentices"
 
 journey = Journey.first
 

@@ -1,19 +1,19 @@
 class ProfilesController < ApplicationController
   def show
-    @student = Student.find(params[:student_id])
+    @apprentice = Apprentice.find(params[:apprentice_id])
 
-    render locals: { profile: @student.profile }
+    render locals: { profile: @apprentice.profile }
   end
 
   def new
-    @student = Student.find(params[:student_id])
+    @apprentice = Apprentice.find(params[:apprentice_id])
   end
 
   def create
-    student = Student.find(params[:student_id])
+    apprentice = Apprentice.find(params[:apprentice_id])
 
     Profile.create!(params.require(:profile).permit!)
 
-    redirect_to student_profile_path(student)
+    redirect_to apprentice_profile_path(apprentice)
   end
 end

@@ -1,4 +1,4 @@
-<h1><%= @student.name %></h1>
+<h1><%= @apprentice.name %></h1>
 
 <h2>Quests</h2>
 
@@ -6,6 +6,6 @@
 
 <ul>
   <% @journey.quests.each do |quest| %>
-    <li><%= link_to quest.name, [@student, quest] %></li>
+    <li><%= link_to quest.name, [@apprentice, quest] %></li>
   <% end %>
 </ul>

@@ -60,6 +60,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_183303) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "apprentices", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "assignments", force: :cascade do |t|
     t.text "submission"
     t.datetime "submitted_at"
@@ -67,9 +74,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_183303) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "quest_id", null: false
-    t.bigint "student_id", null: false
+    t.bigint "apprentice_id", null: false
+    t.index ["apprentice_id"], name: "index_assignments_on_apprentice_id"
     t.index ["quest_id"], name: "index_assignments_on_quest_id"
-    t.index ["student_id"], name: "index_assignments_on_student_id"
   end
 
   create_table "journeys", force: :cascade do |t|
@@ -80,12 +87,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_183303) do
   end
 
   create_table "paths", force: :cascade do |t|
-    t.bigint "student_id"
+    t.bigint "apprentice_id"
     t.bigint "journey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["apprentice_id"], name: "index_paths_on_apprentice_id"
     t.index ["journey_id"], name: "index_paths_on_journey_id"
-    t.index ["student_id"], name: "index_paths_on_student_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -93,8 +100,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_183303) do
     t.jsonb "stats", default: {"level"=>0, "experience"=>0}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "student_id"
-    t.index ["student_id"], name: "index_profiles_on_student_id"
+    t.bigint "apprentice_id"
+    t.index ["apprentice_id"], name: "index_profiles_on_apprentice_id"
   end
 
   create_table "quests", force: :cascade do |t|
@@ -107,16 +114,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_183303) do
     t.index ["journey_id"], name: "index_quests_on_journey_id"
   end
 
-  create_table "students", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "assignments", "apprentices"
   add_foreign_key "assignments", "quests"
-  add_foreign_key "assignments", "students"
   add_foreign_key "quests", "journeys"
 end

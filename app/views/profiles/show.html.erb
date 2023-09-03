@@ -1,7 +1,7 @@
-<h1><%= "#{@student.name}'s " %>Character</h1>
+<h1><%= "#{@apprentice.name}'s " %>Character</h1>
 
-<% unless @student.profile %>
-  <%= form_with url: student_profile_path do |form| %>
+<% unless @apprentice.profile %>
+  <%= form_with url: apprentice_profile_path do |form| %>
     <div class="form-group">
       <h3>Character Attributes</h3>
       <%= form.collection_check_boxes "profile[character][attributes]",  [["Body", :body],
@@ -29,7 +29,7 @@
                                           ["Survival", :Survival]], :first, :last, {include_hidden: false} %>
     </div>
     <%= form.hidden_field "profile[character][kind]", value: params[:kind] %>
-    <%= form.hidden_field "profile[student_id]", value: @student.id %>
+    <%= form.hidden_field "profile[apprentice_id]", value: @apprentice.id %>
     <%= form.submit("Submit") %>
   <% end %>
 <% else %>

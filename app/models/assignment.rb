@@ -1,4 +1,4 @@
 class Assignment < ApplicationRecord
   belongs_to :quest
-  belongs_to :student
+  belongs_to :apprentice
 end

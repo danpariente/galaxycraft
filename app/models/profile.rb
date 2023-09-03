@@ -5,5 +5,5 @@ class Profile < ApplicationRecord
   store_accessor :stats, :experience
   store_accessor :stats, :level
 
-  belongs_to :student
+  belongs_to :apprentice
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
         resources :quests, only: [:index, :show]
       end
 
-      resources :students, only: [] do
+      resources :apprentices, only: [] do
         resources :quests, only: [] do
           resource :assignment
         end
@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   end
 
   resources :journeys do
-     resources :students, only: :show
+     resources :apprentices, only: :show
   end
 
-  resources :students do
+  resources :apprentices do
     resource :profile, only: [:new, :create, :show]
     resources :quests, only: [:show, :index]
   end
