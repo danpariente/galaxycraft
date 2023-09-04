@@ -1,6 +1,6 @@
 class Quest < ApplicationRecord
   has_rich_text :story
-  has_rich_text :task
+  # has_rich_text :task
 
   has_many :assignments
 
@@ -11,6 +11,10 @@ class Quest < ApplicationRecord
   end
 
   def task_text
-    self.task.body
+    self.task
+  end
+
+  def last_assignment
+    assignments.last&.submission
   end
 end
