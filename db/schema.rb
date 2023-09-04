@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_183303) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_04_165633) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_183303) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "accountable_type", null: false
+    t.bigint "accountable_id", null: false
+    t.index ["accountable_type", "accountable_id"], name: "index_accounts_on_accountable"
     t.index ["email"], name: "index_accounts_on_email", unique: true
   end
 

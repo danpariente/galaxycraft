@@ -4,8 +4,9 @@ module API
       def create
         apprentice = Apprentice.new(register_params.slice(:first_name, :last_name))
         account = Account.new(register_params.slice(:email, :password))
+        account.accountable = apprentice
 
-        if account.save && apprentice.save
+        if account.save
           render json: apprentice, status: :created
         else
           render json: account.errors, status: :unprocessable_entity
