@@ -11,7 +11,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :accounts, only: :create
+      resources :accounts, only: [:create, :index]
       resources :tokens, only: :create
       resource :register, only: :create
     end

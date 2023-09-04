@@ -1,6 +1,10 @@
 module API
   module V1
     class AccountsController < BaseController
+      def index
+        render json: AccountSerializer.new(Account.all)
+      end
+
       def create
         account = Account.new(account_params)
 
