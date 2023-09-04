@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
       resources :accounts, only: :create
       resources :tokens, only: :create
+      resource :register, only: :create
     end
   end
 
